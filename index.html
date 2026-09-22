@@ -3,732 +3,1028 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>One Small Question ❤️</title>
+<title>For Sangeetha ❤️</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    body {
-        min-height: 100vh;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                     Roboto, Helvetica, Arial, sans-serif;
-        background:
-            radial-gradient(circle at top left, #3b214f 0%, transparent 35%),
-            radial-gradient(circle at bottom right, #172c4a 0%, transparent 35%),
-            linear-gradient(135deg, #0e0e18, #171525 50%, #101827);
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        overflow-x: hidden;
-    }
+body{
+    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(255,100,180,.20),transparent 30%),
+        radial-gradient(circle at 85% 90%,rgba(100,150,255,.18),transparent 30%),
+        linear-gradient(135deg,#090912,#171526,#0e1624);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:16px;
+    overflow-x:hidden;
+}
 
-    .background-heart {
-        position: fixed;
-        font-size: 25px;
-        opacity: 0.08;
-        animation: float 8s infinite ease-in-out;
-        pointer-events: none;
-    }
+.float{
+    position:fixed;
+    opacity:.12;
+    pointer-events:none;
+    animation:float 7s infinite ease-in-out;
+}
+.f1{top:8%;left:8%;font-size:30px}
+.f2{top:25%;right:8%;font-size:24px;animation-delay:2s}
+.f3{bottom:12%;left:10%;font-size:27px;animation-delay:3s}
+.f4{bottom:25%;right:8%;font-size:22px;animation-delay:1s}
 
-    .heart1 { top: 10%; left: 8%; }
-    .heart2 { top: 75%; right: 10%; animation-delay: 2s; }
-    .heart3 { top: 35%; right: 5%; animation-delay: 4s; }
-    .heart4 { bottom: 10%; left: 12%; animation-delay: 1s; }
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-18px) rotate(8deg)}
+}
 
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-            transform: translateY(-20px) rotate(8deg);
-        }
-    }
+.container{
+    width:100%;
+    max-width:620px;
+    position:relative;
+    z-index:5;
+}
 
-    .container {
-        width: 100%;
-        max-width: 620px;
-        position: relative;
-        z-index: 2;
-    }
+.card{
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:34px 28px;
+    text-align:center;
+    box-shadow:0 30px 90px rgba(0,0,0,.45);
+    animation:appear .7s ease;
+}
 
-    .card {
-        background: rgba(255, 255, 255, 0.075);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border-radius: 28px;
-        padding: 35px 28px;
-        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
-        text-align: center;
-        animation: appear 0.7s ease;
-    }
+@keyframes appear{
+    from{opacity:0;transform:translateY(20px) scale(.97)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
 
-    @keyframes appear {
-        from {
-            opacity: 0;
-            transform: translateY(18px) scale(0.98);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-    }
+.top-label{
+    color:rgba(255,255,255,.5);
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
 
-    .emoji {
-        font-size: 58px;
-        margin-bottom: 12px;
-    }
+.big-heart{
+    font-size:62px;
+    animation:heartbeat 2s infinite;
+    margin-bottom:6px;
+}
 
-    h1 {
-        font-size: 31px;
-        margin-bottom: 12px;
-        letter-spacing: -0.5px;
-    }
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+}
 
-    h2 {
-        font-size: 27px;
-        margin-bottom: 12px;
-    }
+.name{
+    font-size:38px;
+    font-weight:800;
+    background:linear-gradient(90deg,#ff9acb,#fff,#b9d7ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:8px;
+}
 
-    .subtitle {
-        color: rgba(255,255,255,0.72);
-        font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 26px;
-    }
+.from{
+    color:rgba(255,255,255,.55);
+    font-size:14px;
+    margin-bottom:22px;
+}
 
-    .movie-title {
-        font-size: 34px;
-        font-weight: 800;
-        margin: 10px 0 8px;
-        background: linear-gradient(90deg, #ffb6d9, #ffffff, #b8d9ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+h1{
+    font-size:30px;
+    margin-bottom:12px;
+}
 
-    .movie-caption {
-        color: rgba(255,255,255,0.65);
-        margin-bottom: 25px;
-    }
+h2{
+    font-size:27px;
+    margin-bottom:12px;
+}
 
-    .question {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 24px;
-        line-height: 1.5;
-    }
+.subtitle{
+    color:rgba(255,255,255,.73);
+    font-size:16px;
+    line-height:1.75;
+    margin-bottom:22px;
+}
 
-    .message {
-        min-height: 55px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffd9e9;
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-    }
+.movie{
+    font-size:38px;
+    font-weight:800;
+    margin:10px 0;
+    background:linear-gradient(90deg,#ffd0e8,#fff,#c7ddff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 13px;
-    }
+.movie-info{
+    color:rgba(255,255,255,.62);
+    margin-bottom:24px;
+}
 
-    button {
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 700;
-        border-radius: 18px;
-        padding: 16px 24px;
-        transition:
-            transform 0.25s ease,
-            width 0.35s ease,
-            font-size 0.35s ease,
-            opacity 0.35s ease,
-            padding 0.35s ease;
-    }
+.divider{
+    height:1px;
+    background:rgba(255,255,255,.1);
+    margin:24px 0;
+}
 
-    button:active {
-        transform: scale(0.96);
-    }
+.question{
+    font-size:21px;
+    font-weight:650;
+    line-height:1.5;
+    margin-bottom:16px;
+}
 
-    .yes-btn {
-        width: 82%;
-        min-height: 58px;
-        color: white;
-        background: linear-gradient(135deg, #ff4f9a, #ff6b6b);
-        box-shadow: 0 10px 30px rgba(255, 79, 154, 0.25);
-    }
+.message{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffd7e9;
+    line-height:1.6;
+    font-size:16px;
+    margin-bottom:18px;
+    padding:0 8px;
+    transition:all .3s ease;
+}
 
-    .yes-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 35px rgba(255, 79, 154, 0.35);
-    }
+.buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
 
-    .no-btn {
-        width: 48%;
-        min-height: 42px;
-        padding: 10px 15px;
-        font-size: 13px;
-        color: rgba(255,255,255,0.8);
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.12);
-    }
+button{
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:700;
+    border-radius:18px;
+    padding:16px 22px;
+    transition:all .3s ease;
+}
 
-    .final-no-btn {
-        width: 100%;
-        background: rgba(255,255,255,0.06);
-        color: rgba(255,255,255,0.75);
-        border: 1px solid rgba(255,255,255,0.1);
-        margin-top: 5px;
-    }
+button:active{
+    transform:scale(.96);
+}
 
-    .hidden {
-        display: none !important;
-    }
+.yes{
+    width:82%;
+    min-height:60px;
+    color:#fff;
+    background:linear-gradient(135deg,#ff4f9a,#ff6b6b);
+    box-shadow:0 12px 32px rgba(255,79,154,.28);
+}
 
-    .fade {
-        animation: fadeIn 0.5s ease;
-    }
+.yes:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 38px rgba(255,79,154,.4);
+}
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+.no{
+    width:48%;
+    min-height:40px;
+    padding:10px 14px;
+    font-size:13px;
+    color:rgba(255,255,255,.78);
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+}
 
-    .option-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin: 22px 0;
-    }
+.final-no{
+    width:100%;
+    background:rgba(255,255,255,.06);
+    color:rgba(255,255,255,.72);
+    border:1px solid rgba(255,255,255,.1);
+    margin-top:4px;
+}
 
-    .option-btn {
-        background: rgba(255,255,255,0.09);
-        color: white;
-        border: 1px solid rgba(255,255,255,0.12);
-        padding: 18px 12px;
-    }
+.hidden{
+    display:none!important;
+}
 
-    .option-btn:hover {
-        background: rgba(255,255,255,0.14);
-        transform: translateY(-2px);
-    }
+.fade{
+    animation:fade .5s ease;
+}
 
-    select,
-    input {
-        width: 100%;
-        padding: 16px;
-        border-radius: 15px;
-        border: 1px solid rgba(255,255,255,0.15);
-        background: rgba(0,0,0,0.25);
-        color: white;
-        font-size: 16px;
-        outline: none;
-        margin-bottom: 14px;
-    }
+@keyframes fade{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+}
 
-    select option {
-        background: #20202d;
-        color: white;
-    }
+.day-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:22px 0;
+}
 
-    input::placeholder {
-        color: rgba(255,255,255,0.5);
-    }
+.day{
+    background:rgba(255,255,255,.09);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.12);
+    padding:18px;
+}
 
-    .confirm-btn {
-        width: 100%;
-        background: linear-gradient(135deg, #ff4f9a, #ff6b6b);
-        color: white;
-        min-height: 56px;
-    }
+.day:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.14);
+}
 
-    .back-btn {
-        width: 100%;
-        background: rgba(255,255,255,0.07);
-        color: rgba(255,255,255,0.75);
-        margin-top: 10px;
-    }
+select,input{
+    width:100%;
+    padding:16px;
+    margin-bottom:14px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.25);
+    color:#fff;
+    font-size:16px;
+    outline:none;
+}
 
-    .success {
-        font-size: 60px;
-        margin-bottom: 15px;
-    }
+select option{
+    background:#20202d;
+    color:#fff;
+}
 
-    .small-note {
-        margin-top: 20px;
-        color: rgba(255,255,255,0.45);
-        font-size: 13px;
-        line-height: 1.5;
-    }
+input::placeholder{
+    color:rgba(255,255,255,.45);
+}
 
-    .divider {
-        height: 1px;
-        background: rgba(255,255,255,0.1);
-        margin: 25px 0;
-    }
+.confirm{
+    width:100%;
+    min-height:57px;
+    color:#fff;
+    background:linear-gradient(135deg,#ff4f9a,#ff6b6b);
+}
 
-    @media (max-width: 500px) {
+.back{
+    width:100%;
+    margin-top:10px;
+    background:rgba(255,255,255,.06);
+    color:rgba(255,255,255,.7);
+}
 
-        body {
-            padding: 14px;
-        }
+.success{
+    font-size:65px;
+    margin-bottom:15px;
+}
 
-        .card {
-            padding: 28px 20px;
-            border-radius: 24px;
-        }
+.small{
+    font-size:13px;
+    color:rgba(255,255,255,.42);
+    line-height:1.6;
+    margin-top:18px;
+}
 
-        h1 {
-            font-size: 27px;
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        .movie-title {
-            font-size: 29px;
-        }
-
-        .yes-btn {
-            width: 88%;
-        }
-
-        .no-btn {
-            width: 45%;
-        }
-
-        .option-grid {
-            grid-template-columns: 1fr;
-        }
-    }
+@media(max-width:500px){
+    body{padding:12px}
+    .card{padding:28px 19px;border-radius:25px}
+    h1{font-size:27px}
+    h2{font-size:24px}
+    .name{font-size:33px}
+    .movie{font-size:31px}
+    .yes{width:88%}
+    .no{width:45%}
+    .day-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
 
-<div class="background-heart heart1">❤️</div>
-<div class="background-heart heart2">💗</div>
-<div class="background-heart heart3">✨</div>
-<div class="background-heart heart4">🤍</div>
+<div class="float f1">❤️</div>
+<div class="float f2">✨</div>
+<div class="float f3">🍿</div>
+<div class="float f4">💗</div>
 
 <div class="container">
 
-    <!-- MAIN MOVIE SCREEN -->
-    <div class="card" id="movieScreen">
+<!-- MOVIE SCREEN -->
 
-        <div class="emoji">🎬</div>
+<div class="card" id="movieScreen">
 
-        <h1>One Small Question</h1>
-
-        <p class="subtitle">
-            No serious conversation this time... 😄<br>
-            Just a simple question.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="movie-title">Paradas 🎬</div>
-
-        <p class="movie-caption">
-            Maybe a movie, some food and a little time together? ❤️
-        </p>
-
-        <div class="question">
-            Would you like to go with me?
-        </div>
-
-        <div class="message" id="noMessage">
-            Be honest... I promise I can handle it. 😊
-        </div>
-
-        <div class="buttons">
-
-            <button
-                class="yes-btn"
-                id="yesButton"
-                onclick="sayYes()">
-                ❤️ YES, LET'S GO
-            </button>
-
-            <button
-                class="no-btn"
-                id="noButton"
-                onclick="sayNo()">
-                🤍 No
-            </button>
-
-        </div>
-
-        <div id="finalNoArea" class="hidden fade">
-
-            <div class="divider"></div>
-
-            <p class="subtitle">
-                I understand. ❤️<br>
-                If you really don't want to go, I won't ask again.
-            </p>
-
-            <button
-                class="final-no-btn"
-                onclick="reallySayNo()">
-                No, I really don't want to go
-            </button>
-
-        </div>
-
+    <div class="top-label">
+        A little something from Tilak
     </div>
 
+    <div class="big-heart">
+        ❤️
+    </div>
 
-    <!-- DAY SELECTION -->
-    <div class="card hidden" id="dayScreen">
+    <div class="name">
+        Sangeetha
+    </div>
 
-        <div class="emoji">❤️</div>
+    <div class="from">
+        Made especially for you — from Tilak
+    </div>
 
-        <h2>Yay! You said yes! 🥰</h2>
+    <p class="subtitle">
+        No serious conversation today. 😄
+        <br>
+        Just a tiny question...
+        and hopefully a little smile. 😊
+    </p>
 
-        <p class="subtitle">
-            Okay... now let's plan our little movie outing.
-        </p>
+    <div class="divider"></div>
 
-        <p class="question">
-            Which day works for you?
-        </p>
+    <div class="movie">
+        Paradas 🎬
+    </div>
 
-        <div class="option-grid">
+    <p class="movie-info">
+        A movie • some food • a little time together 🍿❤️
+    </p>
 
-            <button
-                class="option-btn"
-                onclick="selectDay('Saturday')">
-                🗓️ Saturday
-            </button>
+    <div class="question">
+        Would you like to watch it with me?
+    </div>
 
-            <button
-                class="option-btn"
-                onclick="selectDay('Sunday')">
-                🗓️ Sunday
-            </button>
+    <div class="message" id="noMessage">
+        Be honest... I promise I'll survive. 😄❤️
+    </div>
 
-        </div>
+    <div class="buttons">
 
         <button
-            class="back-btn"
-            onclick="goBack('dayScreen', 'movieScreen')">
-            ← Go back
+            class="yes"
+            id="yesButton"
+            onclick="sayYes()">
+            ❤️ YES, LET'S GO
+        </button>
+
+        <button
+            class="no"
+            id="noButton"
+            onclick="sayNo()">
+            🤍 No
         </button>
 
     </div>
 
-
-    <!-- TIME AND PLACE -->
-    <div class="card hidden" id="detailsScreen">
-
-        <div class="emoji">🍿</div>
-
-        <h2>Almost there ❤️</h2>
-
-        <p class="subtitle">
-            Just a couple of little details...
-        </p>
-
-        <p class="question" id="selectedDayText"></p>
-
-        <select id="timeSelect">
-
-            <option value="">
-                Select a time
-            </option>
-
-            <option value="11:00 AM">
-                11:00 AM
-            </option>
-
-            <option value="1:00 PM">
-                1:00 PM
-            </option>
-
-            <option value="3:00 PM">
-                3:00 PM
-            </option>
-
-            <option value="5:00 PM">
-                5:00 PM
-            </option>
-
-            <option value="7:00 PM">
-                7:00 PM
-            </option>
-
-            <option value="9:00 PM">
-                9:00 PM
-            </option>
-
-        </select>
-
-        <input
-            type="text"
-            id="placeInput"
-            placeholder="Where would you like to meet?">
-
-        <button
-            class="confirm-btn"
-            onclick="confirmPlan()">
-            ❤️ Confirm our movie plan
-        </button>
-
-        <button
-            class="back-btn"
-            onclick="goBack('detailsScreen', 'dayScreen')">
-            ← Go back
-        </button>
-
-    </div>
-
-
-    <!-- SUCCESS -->
-    <div class="card hidden" id="successScreen">
-
-        <div class="success">🎉</div>
-
-        <h2>It's a plan! ❤️</h2>
-
-        <p class="subtitle">
-            Paradas 🎬<br><br>
-
-            <strong id="finalDay"></strong><br>
-            <strong id="finalTime"></strong><br>
-            <strong id="finalPlace"></strong>
-        </p>
+    <div id="finalNoArea" class="hidden fade">
 
         <div class="divider"></div>
 
         <p class="subtitle">
-            Looking forward to it. 😊❤️
+            Okay, seriously. ❤️
+            <br>
+            If you really don't want to go,
+            I promise I won't ask again.
         </p>
 
-        <p class="small-note">
-            No pressure, no expectations — just a movie,
-            some food and hopefully a good time.
-        </p>
-
-    </div>
-
-
-    <!-- FINAL NO -->
-    <div class="card hidden" id="goodbyeScreen">
-
-        <div class="success">🤍</div>
-
-        <h2>Okay.</h2>
-
-        <p class="subtitle">
-            Thank you for being honest with me.
-            I genuinely respect your answer.
-        </p>
-
-        <div class="divider"></div>
-
-        <p class="subtitle">
-            I won't ask again or make things uncomfortable.
-            <br><br>
-            If you're comfortable with it,
-            I'll happily remain your friend. ❤️
-        </p>
-
-        <p class="small-note">
-            Take care of yourself. 😊
-        </p>
+        <button
+            class="final-no"
+            onclick="reallySayNo()">
+            🤍 No, I really don't want to go
+        </button>
 
     </div>
 
 </div>
 
 
+<!-- DAY SCREEN -->
+
+<div class="card hidden" id="dayScreen">
+
+    <div class="big-heart">
+        🎉
+    </div>
+
+    <h2>
+        Okayyy! You said YES! ❤️
+    </h2>
+
+    <p class="subtitle">
+        I knew that popcorn had a chance. 😂🍿
+        <br><br>
+        Now let's make the plan.
+    </p>
+
+    <div class="question">
+        Which day works for you?
+    </div>
+
+    <div class="day-grid">
+
+        <button
+            class="day"
+            onclick="selectDay('Saturday')">
+            🗓️ Saturday
+        </button>
+
+        <button
+            class="day"
+            onclick="selectDay('Sunday')">
+            🗓️ Sunday
+        </button>
+
+    </div>
+
+    <button
+        class="back"
+        onclick="goBack('dayScreen','movieScreen')">
+        ← Go back
+    </button>
+
+</div>
+
+
+<!-- DETAILS SCREEN -->
+
+<div class="card hidden" id="detailsScreen">
+
+    <div class="big-heart">
+        🍿
+    </div>
+
+    <h2>
+        One last little thing ❤️
+    </h2>
+
+    <p
+        class="subtitle"
+        id="selectedDayText">
+    </p>
+
+    <select id="timeSelect">
+
+        <option value="">
+            Choose a time
+        </option>
+
+        <option value="11:00 AM">
+            11:00 AM
+        </option>
+
+        <option value="1:00 PM">
+            1:00 PM
+        </option>
+
+        <option value="3:00 PM">
+            3:00 PM
+        </option>
+
+        <option value="5:00 PM">
+            5:00 PM
+        </option>
+
+        <option value="7:00 PM">
+            7:00 PM
+        </option>
+
+        <option value="9:00 PM">
+            9:00 PM
+        </option>
+
+    </select>
+
+    <input
+        id="placeInput"
+        type="text"
+        placeholder="Where should we meet? 😊">
+
+    <button
+        class="confirm"
+        onclick="confirmPlan()">
+        ❤️ Confirm our Paradas plan
+    </button>
+
+    <button
+        class="back"
+        onclick="goBack('detailsScreen','dayScreen')">
+        ← Go back
+    </button>
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div class="card hidden" id="successScreen">
+
+    <div class="success">
+        🎉
+    </div>
+
+    <h2>
+        It's a plan! ❤️
+    </h2>
+
+    <p class="subtitle">
+
+        Paradas 🎬
+
+        <br><br>
+
+        <strong id="finalDay"></strong>
+
+        <br>
+
+        <strong id="finalTime"></strong>
+
+        <br>
+
+        <strong id="finalPlace"></strong>
+
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="subtitle">
+        Looking forward to it, Sangeetha. 😊❤️
+    </p>
+
+    <p class="small">
+        From Tilak —
+        hopefully this becomes one of those
+        simple days we remember with a smile. 🍿✨
+    </p>
+
+</div>
+
+
+<!-- FINAL NO -->
+
+<div class="card hidden" id="goodbyeScreen">
+
+    <div class="success">
+        🤍
+    </div>
+
+    <h2>
+        Okay, Sangeetha.
+    </h2>
+
+    <p class="subtitle">
+
+        Thank you for being honest with me. ❤️
+
+        <br><br>
+
+        No pressure.
+        No awkwardness.
+        No more asking.
+
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="subtitle">
+
+        I'll respect your answer.
+
+        <br><br>
+
+        And if you're comfortable with it,
+        I'll happily remain your friend. 🤍
+
+    </p>
+
+    <p class="small">
+        — Tilak
+    </p>
+
+</div>
+
+</div>
+
+
 <script>
 
+/* =====================================================
+   GOOGLE APPS SCRIPT
+   ===================================================== */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyTBp4RxQxpYurUWEmXE898_Y-RuP16GVss2_mituhPg6YNgVtXjiHk0-bIIKJX5U5SmQ/exec";
+
+
 let noCount = 0;
+
 let selectedDay = "";
+
+
+/* =====================================================
+   SEND RESPONSE TO GOOGLE SHEET
+   ===================================================== */
+
+function sendResponse(
+    response,
+    day = "",
+    time = "",
+    place = ""
+){
+
+    const data = {
+
+        response: response,
+
+        day: day,
+
+        time: time,
+
+        place: place,
+
+        noCount: noCount
+
+    };
+
+    fetch(
+        SCRIPT_URL,
+        {
+            method:"POST",
+
+            mode:"no-cors",
+
+            headers:{
+                "Content-Type":
+                "text/plain;charset=utf-8"
+            },
+
+            body:
+                JSON.stringify(data)
+        }
+    )
+    .catch(
+        error =>
+        console.error(
+            "Response error:",
+            error
+        )
+    );
+}
+
+
+/* =====================================================
+   FUNNY MESSAGES
+   ===================================================== */
 
 const noMessages = [
 
-    "Aww... okay. 🥺 Are you sure?",
+    "🥺 Aww... okay. I was already mentally choosing the popcorn. 🍿😂",
 
-    "You're making my little movie plan sad. 🥹",
+    "😭 The popcorn just heard that... and it's taking this personally. 🍿💔",
 
-    "Even the popcorn is disappointed now. 🍿🥺",
+    "😂 Okay okay... I promise I won't tell anyone you rejected my movie invitation. 🤫",
 
-    "Okay... one tiny chance? 😄❤️",
+    "🎬 Even the movie is asking... 'What did I do?' 😂",
 
-    "I'm running out of ways to ask nicely. 😂❤️"
+    "🥹 At this point, even the cinema seats are rooting for me. 😂❤️",
+
+    "🍿 The popcorn says we should discuss this over popcorn. I trust its judgement. 😌",
+
+    "😂 One more NO and I'm going to have to give the popcorn a motivational speech.",
+
+    "😌 Fine... I'll accept defeat. But admit it, you smiled a little. 😄",
+
+    "🥲 My movie plan has officially entered its emotional-support era. 😂❤️",
+
+    "😂 Okay Sangeetha... you're making this very difficult for one innocent movie invitation.",
+
+    "🤭 I think the YES button is getting jealous of the NO button.",
+
+    "❤️ Last attempt from me... not because I'm stubborn, obviously. 😇😂"
 
 ];
 
-function sayNo() {
+
+/* =====================================================
+   NO BUTTON
+   ===================================================== */
+
+function sayNo(){
 
     noCount++;
 
-    const message = document.getElementById("noMessage");
-    const yesButton = document.getElementById("yesButton");
-    const noButton = document.getElementById("noButton");
+    const message =
+        document.getElementById(
+            "noMessage"
+        );
 
-    if (noCount <= noMessages.length) {
+    const yesButton =
+        document.getElementById(
+            "yesButton"
+        );
 
-        message.innerHTML = noMessages[noCount - 1];
+    const noButton =
+        document.getElementById(
+            "noButton"
+        );
 
-    }
 
-    /*
-     * Make YES progressively bigger.
-     */
+    /* New message every time */
 
-    const yesWidth = Math.min(96, 82 + (noCount * 3));
+    const messageIndex =
+        (noCount - 1)
+        % noMessages.length;
 
-    yesButton.style.width = yesWidth + "%";
+    message.innerHTML =
+        noMessages[
+            messageIndex
+        ];
 
-    /*
-     * Make NO progressively smaller.
-     */
 
-    const noWidth = Math.max(18, 48 - (noCount * 6));
+    /* YES grows */
 
-    noButton.style.width = noWidth + "%";
+    const yesWidth =
+        Math.min(
+            97,
+            82 + noCount * 3
+        );
 
-    /*
-     * Slightly increase YES button.
-     */
+    yesButton.style.width =
+        yesWidth + "%";
+
+
+    /* NO shrinks */
+
+    const noWidth =
+        Math.max(
+            17,
+            48 - noCount * 5
+        );
+
+    noButton.style.width =
+        noWidth + "%";
+
+
+    /* YES gets slightly bigger */
+
+    const yesFont =
+        Math.min(
+            22,
+            16 + noCount * .7
+        );
 
     yesButton.style.fontSize =
-        Math.min(21, 16 + (noCount * 0.8)) + "px";
+        yesFont + "px";
 
-    /*
-     * After several No clicks,
-     * show the genuine final option.
-     */
 
-    if (noCount >= 4) {
+    /* Little button text changes */
 
-        document.getElementById("finalNoArea")
-            .classList.remove("hidden");
+    if(noCount === 2){
 
-        noButton.innerHTML = "🥺 No";
+        noButton.innerHTML =
+            "😅 Still no?";
+
+    }
+
+    else if(noCount === 3){
+
+        noButton.innerHTML =
+            "🥺 Really?";
+
+    }
+
+    else if(noCount >= 4){
+
+        noButton.innerHTML =
+            "😂 No";
+
+    }
+
+
+    /* Show genuine final choice */
+
+    if(noCount >= 5){
+
+        document
+            .getElementById(
+                "finalNoArea"
+            )
+            .classList
+            .remove("hidden");
 
     }
 
 }
 
 
-function sayYes() {
+/* =====================================================
+   YES
+   ===================================================== */
 
-    document.getElementById("movieScreen")
-        .classList.add("hidden");
+function sayYes(){
 
-    document.getElementById("dayScreen")
-        .classList.remove("hidden");
+    document
+        .getElementById(
+            "movieScreen"
+        )
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById(
+            "dayScreen"
+        )
+        .classList
+        .remove("hidden");
 
 }
 
 
-function selectDay(day) {
+/* =====================================================
+   SELECT DAY
+   ===================================================== */
 
-    selectedDay = day;
+function selectDay(day){
 
-    document.getElementById("selectedDayText")
+    selectedDay =
+        day;
+
+    document
+        .getElementById(
+            "selectedDayText"
+        )
         .innerHTML =
-        "Great! ❤️ You chose <strong>" +
-        day +
+        "Perfect! ❤️ You chose <strong>"
+        +
+        day
+        +
         "</strong>.";
 
-    document.getElementById("dayScreen")
-        .classList.add("hidden");
 
-    document.getElementById("detailsScreen")
-        .classList.remove("hidden");
+    document
+        .getElementById(
+            "dayScreen"
+        )
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById(
+            "detailsScreen"
+        )
+        .classList
+        .remove("hidden");
 
 }
 
 
-function confirmPlan() {
+/* =====================================================
+   CONFIRM
+   ===================================================== */
+
+function confirmPlan(){
 
     const time =
-        document.getElementById("timeSelect").value;
+        document
+            .getElementById(
+                "timeSelect"
+            )
+            .value;
 
     const place =
-        document.getElementById("placeInput").value.trim();
+        document
+            .getElementById(
+                "placeInput"
+            )
+            .value
+            .trim();
 
-    if (!time) {
 
-        alert("Please choose a time ❤️");
+    if(!time){
+
+        alert(
+            "Choose a time first ❤️"
+        );
 
         return;
 
     }
 
-    if (!place) {
 
-        alert("Please tell me where you'd like to meet 😊");
+    if(!place){
+
+        alert(
+            "Tell me where you'd like to meet 😊"
+        );
 
         return;
 
     }
 
-    document.getElementById("finalDay")
+
+    /* SAVE TO GOOGLE SHEET */
+
+    sendResponse(
+        "YES - CONFIRMED",
+        selectedDay,
+        time,
+        place
+    );
+
+
+    /* SHOW CONFIRMATION */
+
+    document
+        .getElementById(
+            "finalDay"
+        )
         .innerText =
         "🗓️ " + selectedDay;
 
-    document.getElementById("finalTime")
+
+    document
+        .getElementById(
+            "finalTime"
+        )
         .innerText =
         "⏰ " + time;
 
-    document.getElementById("finalPlace")
+
+    document
+        .getElementById(
+            "finalPlace"
+        )
         .innerText =
         "📍 " + place;
 
-    document.getElementById("detailsScreen")
-        .classList.add("hidden");
 
-    document.getElementById("successScreen")
-        .classList.remove("hidden");
+    document
+        .getElementById(
+            "detailsScreen"
+        )
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "successScreen"
+        )
+        .classList
+        .remove("hidden");
 
 }
 
 
-function reallySayNo() {
+/* =====================================================
+   FINAL NO
+   ===================================================== */
 
-    document.getElementById("movieScreen")
-        .classList.add("hidden");
+function reallySayNo(){
 
-    document.getElementById("goodbyeScreen")
-        .classList.remove("hidden");
+    sendResponse(
+        "NO - FINAL",
+        "",
+        "",
+        ""
+    );
+
+
+    document
+        .getElementById(
+            "movieScreen"
+        )
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "goodbyeScreen"
+        )
+        .classList
+        .remove("hidden");
 
 }
 
 
-function goBack(currentScreen, previousScreen) {
+/* =====================================================
+   BACK
+   ===================================================== */
 
-    document.getElementById(currentScreen)
-        .classList.add("hidden");
+function goBack(
+    currentScreen,
+    previousScreen
+){
 
-    document.getElementById(previousScreen)
-        .classList.remove("hidden");
+    document
+        .getElementById(
+            currentScreen
+        )
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            previousScreen
+        )
+        .classList
+        .remove("hidden");
 
 }
 
