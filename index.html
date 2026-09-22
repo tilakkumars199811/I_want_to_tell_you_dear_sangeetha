@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Small Question 🎬❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #4a293f 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #302448 0%,
+            transparent 40%
+        ),
+        #0d0b12;
+
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 25px 20px 50px;
+}
+
+
+/* -----------------------------
+   OPENING
+----------------------------- */
+
+.hero {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.movie-icon {
+
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation:
+        float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero h1 {
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(38px, 11vw, 55px);
+
+    font-weight: 400;
+
+    margin: 0;
+}
+
+.hero p {
+
+    color: #d9cdd7;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin:
+        20px auto 35px;
+
+    max-width: 440px;
+}
+
+.start-button {
+
+    display: inline-block;
+
+    padding:
+        15px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e98da5,
+            #bd6682
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 30px
+        rgba(220,110,145,.25);
+}
+
+
+/* -----------------------------
+   INVITATION
+----------------------------- */
+
+.card {
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius: 28px;
+
+    padding: 30px 23px;
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.35);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.card h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    margin-top: 0;
+
+    text-align: center;
+}
+
+.subtitle {
+
+    text-align: center;
+
+    color: #cfc4cf;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+
+/* -----------------------------
+   CHOICES
+----------------------------- */
+
+.question {
+
+    margin-top: 30px;
+
+    color: #eee;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.options {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+}
+
+.option {
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color: white;
+
+    padding: 17px 10px;
+
+    border-radius: 17px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        .2s ease;
+}
+
+.option:hover {
+
+    background:
+        rgba(255,255,255,.12);
+
+    transform:
+        translateY(-2px);
+}
+
+.option.selected {
+
+    background:
+        linear-gradient(
+            135deg,
+            #db8099,
+            #a95473
+        );
+
+    border-color:
+        #e99aae;
+
+    box-shadow:
+        0 8px 25px
+        rgba(210,100,135,.25);
+}
+
+
+/* -----------------------------
+   FORM
+----------------------------- */
+
+select,
+input {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        #211c26;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+select:focus,
+input:focus {
+
+    border-color:
+        #dc8ca4;
+}
+
+
+/* -----------------------------
+   CONFIRM
+----------------------------- */
+
+.confirm {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 17px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e994aa,
+            #b95e7d
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px
+        rgba(210,100,135,.25);
+}
+
+.confirm:active {
+
+    transform:
+        scale(.98);
+}
+
+
+/* -----------------------------
+   RESULT
+----------------------------- */
+
+.result {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 20px 5px 5px;
+}
+
+.result .emoji {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+.result h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+}
+
+.result p {
+
+    color: #d3c8d2;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+.details {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    text-align: left;
+}
+
+.details div {
+
+    padding: 9px 0;
+
+    color: #ddd3dd;
+}
+
+
+/* -----------------------------
+   FOOTER
+----------------------------- */
+
+.footer {
+
+    text-align: center;
+
+    color: #756d78;
+
+    font-size: 12px;
+
+    margin-top: 35px;
+}
+
+.hidden {
+
+    display: none;
+}
+
+
+/* -----------------------------
+   MOBILE
+----------------------------- */
+
+@media(max-width:450px) {
+
+    .container {
+
+        padding:
+            15px
+            15px
+            40px;
+    }
+
+    .card {
+
+        padding:
+            27px
+            18px;
+    }
+
+    .hero {
+
+        min-height:
+            88vh;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ==========================
+     OPENING
+=========================== -->
+
+<section class="hero">
+
+    <div class="movie-icon">
+        🎬
+    </div>
+
+    <h1>
+        One Small Question
+    </h1>
+
+    <p>
+
+        I was thinking...
+
+        maybe we could forget
+        all the serious conversations
+        for one evening.
+
+        Just a movie,
+        some food,
+        and some good time together. 😊
+
+    </p>
+
+    <a
+        href="#invitation"
+        class="start-button"
+    >
+        Okay... tell me 😄
+    </a>
+
+</section>
+
+
+
+<!-- ==========================
+     INVITATION
+=========================== -->
+
+<section
+    class="card"
+    id="invitation"
+>
+
+    <h2>
+        Movie this weekend? 🎬❤️
+    </h2>
+
+    <p class="subtitle">
+
+        No complicated conversations.
+        <br>
+
+        No expectations.
+
+        <br><br>
+
+        Just a movie and some
+        good time together. 😊
+
+    </p>
+
+
+    <!-- YES / NO -->
+
+    <div class="question">
+
+        Would you like to go?
+
+    </div>
+
+
+    <div class="options">
+
+        <button
+            class="option"
+            id="yesButton"
+            onclick="chooseAnswer('yes')"
+        >
+            ❤️ Yes, let's go
+        </button>
+
+
+        <button
+            class="option"
+            id="noButton"
+            onclick="chooseAnswer('no')"
+        >
+            🤍 Not this time
+        </button>
+
+    </div>
+
+
+
+    <!-- DETAILS -->
+
+    <div
+        id="detailsSection"
+        class="hidden"
+    >
+
+
+        <div class="question">
+
+            Which day works better?
+
+        </div>
+
+
+        <div class="options">
+
+            <button
+                class="option day"
+                onclick="chooseDay(this,'Saturday')"
+            >
+                🌙 Saturday
+            </button>
+
+            <button
+                class="option day"
+                onclick="chooseDay(this,'Sunday')"
+            >
+                ☀️ Sunday
+            </button>
+
+        </div>
+
+
+
+        <div class="question">
+
+            What time would you prefer?
+
+        </div>
+
+
+        <select id="time">
+
+            <option value="">
+                Select a time
+            </option>
+
+            <option>
+                5:00 PM
+            </option>
+
+            <option>
+                5:30 PM
+            </option>
+
+            <option>
+                6:00 PM
+            </option>
+
+            <option>
+                6:30 PM
+            </option>
+
+            <option>
+                7:00 PM
+            </option>
+
+            <option>
+                7:30 PM
+            </option>
+
+            <option>
+                8:00 PM
+            </option>
+
+        </select>
+
+
+
+        <div class="question">
+
+            Where should we go?
+
+        </div>
+
+
+        <input
+            id="place"
+            type="text"
+            placeholder="Your preferred place 📍"
+        >
+
+
+        <button
+            class="confirm"
+            onclick="confirmMovie()"
+        >
+
+            ✨ Confirm Movie Plan
+
+        </button>
+
+    </div>
+
+
+
+    <!-- RESULT -->
+
+    <div
+        id="result"
+        class="result"
+    >
+
+        <div
+            class="emoji"
+            id="resultEmoji"
+        >
+            ❤️
+        </div>
+
+
+        <h2 id="resultTitle">
+            Yay! 🎬
+        </h2>
+
+
+        <p id="resultMessage">
+
+            Looking forward to it. 😊
+
+        </p>
+
+
+        <div
+            id="details"
+            class="details"
+        >
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<div class="footer">
+
+    Made with a little courage and a lot of honesty. ❤️
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+let answer = "";
+let selectedDay = "";
+
+
+/* -----------------------------
+   YES / NO
+----------------------------- */
+
+function chooseAnswer(value) {
+
+    answer = value;
+
+
+    document
+        .getElementById("yesButton")
+        .classList.remove("selected");
+
+    document
+        .getElementById("noButton")
+        .classList.remove("selected");
+
+
+    if(value === "yes") {
+
+        document
+            .getElementById("yesButton")
+            .classList.add("selected");
+
+        document
+            .getElementById("detailsSection")
+            .classList.remove("hidden");
+
+    }
+
+    else {
+
+        document
+            .getElementById("noButton")
+            .classList.add("selected");
+
+        document
+            .getElementById("detailsSection")
+            .classList.add("hidden");
+
+
+        showNoResult();
+
+    }
+
+}
+
+
+
+/* -----------------------------
+   DAY
+----------------------------- */
+
+function chooseDay(button, day) {
+
+    selectedDay = day;
+
+
+    document
+        .querySelectorAll(".day")
+        .forEach(
+            b => b.classList.remove("selected")
+        );
+
+
+    button.classList.add("selected");
+
+}
+
+
+
+/* -----------------------------
+   CONFIRM
+----------------------------- */
+
+function confirmMovie() {
+
+    const time =
+        document
+        .getElementById("time")
+        .value;
+
+
+    const place =
+        document
+        .getElementById("place")
+        .value
+        .trim();
+
+
+    if(!selectedDay) {
+
+        alert(
+            "Choose Saturday or Sunday 😊"
+        );
+
+        return;
+    }
+
+
+    if(!time) {
+
+        alert(
+            "Choose a time 🕐"
+        );
+
+        return;
+    }
+
+
+    if(!place) {
+
+        alert(
+            "Tell me where you'd like to go 📍"
+        );
+
+        return;
+    }
+
+
+    document
+        .getElementById("detailsSection")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("result")
+        .style.display = "block";
+
+
+    document
+        .getElementById("resultEmoji")
+        .innerHTML = "❤️";
+
+
+    document
+        .getElementById("resultTitle")
+        .innerHTML =
+        "It's a plan! 🎬";
+
+
+    document
+        .getElementById("resultMessage")
+        .innerHTML =
+        "Perfect. I'll take it from here. 😊";
+
+
+    document
+        .getElementById("details")
+        .innerHTML =
+
+        "<div>📅 <strong>Day:</strong> "
+        + selectedDay
+        + "</div>"
+
+        +
+
+        "<div>🕐 <strong>Time:</strong> "
+        + time
+        + "</div>"
+
+        +
+
+        "<div>📍 <strong>Place:</strong> "
+        + place
+        + "</div>";
+
+}
+
+
+
+/* -----------------------------
+   NO RESULT
+----------------------------- */
+
+function showNoResult() {
+
+    document
+        .getElementById("result")
+        .style.display = "block";
+
+
+    document
+        .getElementById("resultEmoji")
+        .innerHTML = "🤍";
+
+
+    document
+        .getElementById("resultTitle")
+        .innerHTML =
+        "That's completely okay.";
+
+
+    document
+        .getElementById("resultMessage")
+        .innerHTML =
+
+        "No pressure at all. 😊"
+        + "<br><br>"
+        + "I just wanted to ask.";
+
+    
+    document
+        .getElementById("details")
+        .innerHTML = "";
+
+}
+
+</script>
+
+
+</body>
+</html>
